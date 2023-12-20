@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #eeaeca, #94bbe9);
+  padding: 10px;
+}
+.buttons{
+  margin: 50px;
+}
+.buttons button{
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0;
+  outline: 0;
+  width: 120px;
+  height: 40px;
+  margin: 5px;
+  cursor: pointer;
+}
+#success{
+  color:rgb(72, 255, 72);
+  border: 2px rgb(72, 255, 72) solid;
+}
+#error{
+  color: red;
+  border: 2px red solid;
+}
+#invalid{
+  color: orange;
+  border: 2px orange solid;
+
+}
+#toastBox{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+.toast{
+  width: 400px;
+  height: 80px;
+  background: #ffffff;
+  font-weight: 500;
+  margin: 15px 0px;
+  box-shadow: 0 0 20px rgb(0, 0, 0,0.3);
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: translateX(100%);
+  animation: moveleft 0.5s linear forwards;
+}
+@keyframes moveleft{
+  100%{
+    transform: translateX(0);
+  }
+}
+
+.toast i{
+ margin: 0 20px;
+ font-size: 35px;
+ color: rgb(72, 255, 72);
+}
+
+.toast.error i{
+  color: red;
+}
+.toast.invalid i{
+  color: orange;
+}
+
+.toast::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: rgb(72, 255, 72);
+  animation: anim 5s linear forwards;
+}
+
+@keyframes anim {
+  100%{
+    width: 0;
+  }
+}
+
+.toast.error::after{
+  background: red;
+}
+.toast.invalid::after{
+  background: orange;
+}
